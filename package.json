@@ -1,0 +1,21 @@
+{
+	"private": true,
+	"name": "repro",
+	"version": "0.0.0",
+	"scripts": {
+		"build": "bun build --compile index.ts --minify --outfile ./repro --target bun",
+		"postinstall": "prisma generate"
+	},
+	"dependencies": {
+		"@prisma/adapter-pg": "6.14.0-integration-feat-client-wasm-base64-on-nodejs.6",
+		"@prisma/client": "6.14.0-integration-feat-client-wasm-base64-on-nodejs.6",
+		"prisma": "6.14.0-integration-feat-client-wasm-base64-on-nodejs.6"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.1.3",
+		"@types/bun": "1.2.19"
+	},
+	"prisma": {
+		"schema": "./schema"
+	}
+}

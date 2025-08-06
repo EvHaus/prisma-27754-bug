@@ -1,0 +1,19 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    importFileExtension = "ts"
+    moduleFormat        = "esm"
+    output              = "../generated"
+    previewFeatures     = ["driverAdapters", "queryCompiler", "relationJoins"]
+    provider            = "prisma-client"
+    runtime             = "bun"
+}
+
+model Organization {
+    id               String            @id @default(cuid())
+    createdAt        DateTime          @default(now())
+    name             String            @unique
+}
